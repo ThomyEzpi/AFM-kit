@@ -67,7 +67,7 @@ function connect() {
   dot.classList.remove("on");
   statusEl.textContent = "conectando\u2026";
 
-  peer = new Peer(undefined, { debug: 0 });
+  peer = new Peer(undefined, { host: "0.peerjs.com", port: 443, secure: true, debug: 0 });
   peer.on("open", () => {
     conn = peer.connect(room, { reliable: false });
     conn.on("open", () => { dot.classList.add("on"); statusEl.textContent = "conectado"; });
