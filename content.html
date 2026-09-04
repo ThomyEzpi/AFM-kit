@@ -132,7 +132,7 @@ renderer.domElement.addEventListener("wheel", (e) => applyDelta({ dZoom: e.delta
 // ---------------- Conexión con el celular (PeerJS) ----------------
 const statusEl = document.getElementById("status");
 function connect() {
-  const peer = new Peer(room, { debug: 0 });
+  const peer = new Peer(room, { host: "0.peerjs.com", port: 443, secure: true, debug: 0 });
   peer.on("open", () => { statusEl.textContent = "esperando celular\u2026"; });
   peer.on("connection", (conn) => {
     statusEl.textContent = "celular conectado";
